@@ -6,13 +6,15 @@ body {
 
 #game {
     position: absolute;
-    top: 44px;
+    top: 0px;
     bottom: 0px;
     left: 0px;
     right: 0px;
+    z-index: 1;
 }
 
 #ui {
+    position: absolute;
     margin-left: .5em;
     display: inline-block;
     z-index: 10;
