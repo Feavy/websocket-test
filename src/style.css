@@ -1,8 +1,48 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #E0E5EC;
+    margin: 0px;
 }
 
-.player{
+#game {
+    position: absolute;
+    top: 44px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+#ui {
+    margin-left: .5em;
+    display: inline-block;
+    z-index: 10;
+}
+
+#message_input {
+    border: none;
+    border-radius: 4px;
+    background: #E0E5EC;
+    box-shadow: inset 4px 4px 7px rgb(163, 177, 198, 0.6), inset -4px -4px 7px rgba(255, 255, 255, 0.5);
+    padding: .5em;
+    width: 170px;
+}
+
+#message_send {
+    display: inline-block;
+    border-radius: 4px;
+    padding: .5em;
+    margin-left: .5em;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #E0E5EC;
+    box-shadow: 4px 4px 7px rgb(163, 177, 198, 0.6), -4px -4px 7px rgba(255, 255, 255, 0.5);
+}
+
+#message_send:active {
+    box-shadow: inset 4px 4px 7px rgb(163, 177, 198, 0.6), inset -4px -4px 7px rgba(255, 255, 255, 0.5);
+}
+
+.player {
     position: absolute;
     display: inline-block;
     left: 0px;
@@ -21,6 +61,6 @@ body {
     height: 50px;
 }
 
-.player > p{
+.player>p {
     text-align: center;
 }
