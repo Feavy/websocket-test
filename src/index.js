@@ -3,24 +3,30 @@ import io from "socket.io-client"
 const socket = io.connect("https://productive-chocolate-45ohn8wqtg.glitch.me");
 const players = new Map();
 
-const playerUsername = prompt("Entrez votre pseudo :");
-onPlayerJoin(playerUsername);
+var playerUsername = prompt("Entrez votre pseudo :");
 
 socket.emit("initialize", playerUsername);
 
 
 socket.on("initialize", initialize);
+socket.on("initialize_error", initializeError);
 socket.on("player_joined", onPlayerJoin);
 socket.on("player_left", onPlayerLeave);
 socket.on("player_moved", onPlayerMove);
 
 function initialize(localPlayers) {
+    onPlayerJoin(playerUsername);
     console.log(localPlayers);
     for(var player in localPlayers) {
         console.log(player);
         onPlayerJoin(localPlayers[player].username);
         onPlayerMove(localPlayers[player].username, localPlayers[player].x, localPlayers[player].y);
     }
+}
+
+function initializeError(error) {
+    playerUsername = prompt(error);
+    socket.emit("initialize", playerUsername);
 }
 
 function onPlayerJoin(username) {
